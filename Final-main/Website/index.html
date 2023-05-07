@@ -1,0 +1,88 @@
+<html>
+
+<head>
+    <title>NaCl-ie Co.</title>
+    <link rel="shortcut icon" href="pictures/salt.jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <dialog id="abc">
+        <div class=content>
+            <form name="signup">
+                <fieldset>
+                    <legend>Sign Up</legend>
+                    <table class="index-table">
+                        <tr>
+                            <td align="right"><label>Username:</label></td>
+                            <td><input type="text" name="uname"><br></td>
+                        </tr>
+                        <tr>
+                            <td><label>Name:</label></td>
+                            <td><input type="text" name="name" id="jake"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Password:</label></td>
+                            <td><input type="password" name="pwd"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center"><input type="button" value="Submit" id="confirmBtn"></td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </form>
+        </div>
+    </dialog>
+    <header>
+        <div class="heading">
+            <h1>
+                NaCl-ie Co.
+            </h1>
+        </div>
+        <ul class="sign">
+            <a id="signup">Sign up</a>
+            <div>
+                <output></output>
+            </div>
+        </ul>
+        <ul class="nav-bar">
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+        </ul>
+        <div class="salt">
+        <img src="pictures/salt.jpg">
+        </div>
+    </header>
+    </div>
+    <div class="content">
+        <div class="text">
+            <h5> Welcome!</h5>
+        </div>
+
+        <script>
+            const showButton = document.getElementById('signup');
+            const favDialog = document.getElementById('abc');
+            const outputBox = document.querySelector('output');
+            const confirmBtn = favDialog.querySelector('#confirmBtn');
+            const fname = document.getElementById("jake");
+            // "Show the dialog" button opens the <dialog> modally
+            showButton.addEventListener('click', () => {
+                favDialog.showModal();
+            });
+            // "Confirm" button triggers "close" on dialog because of [method="dialog"]
+            favDialog.addEventListener('close', () => {
+                outputBox.value = fname.value
+                showButton.remove();
+            });
+            confirmBtn.addEventListener('click', (event) => {
+                event.preventDefault(); // We don't want to submit this fake form
+                favDialog.close();
+            });
+        </script>
+        <footer>
+            Copyright &copy; Mason Bongo
+        </footer>
+</body>
+
+</html>
